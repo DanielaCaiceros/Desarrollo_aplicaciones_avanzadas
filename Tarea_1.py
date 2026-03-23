@@ -1,7 +1,0 @@
-#Stack
-
-#Queue
-
-#Hash
-
-#Table

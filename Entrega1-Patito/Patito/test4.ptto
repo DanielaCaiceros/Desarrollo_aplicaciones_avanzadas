@@ -1,0 +1,12 @@
+programa miPrograma ;
+vars :
+    x : entero ;
+inicio
+{
+    x = 10 ;
+    mientras ( x > 0 ) haz
+    {
+        x = x - 1 ;
+    } ;
+}
+fin

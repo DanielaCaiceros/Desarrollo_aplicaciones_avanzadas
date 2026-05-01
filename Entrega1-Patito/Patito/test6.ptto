@@ -1,0 +1,14 @@
+programa miPrograma ;
+vars :
+nula miFuncion ( x : entero ) {
+vars :
+    resultado : entero ;
+{
+    resultado = x ;
+}
+}
+inicio
+{
+    miFuncion ( 5 ) ;
+}
+fin

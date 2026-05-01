@@ -1,0 +1,12 @@
+programa miPrograma ;
+vars :
+    x : entero ;
+inicio
+{
+    x = 5 ;
+    si ( x > 3 ) 
+    {
+        escribe ( "mayor" ) ;
+    } ;
+}
+fin

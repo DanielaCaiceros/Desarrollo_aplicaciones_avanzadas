@@ -1,0 +1,9 @@
+programa miPrograma ;
+vars :
+    x , y : entero ;
+inicio
+{
+    x = 5 ;
+    y = 10 ;
+}
+fin

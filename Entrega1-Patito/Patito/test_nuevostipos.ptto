@@ -1,0 +1,15 @@
+programa testTipos ;
+vars :
+    x : entero ;
+    y : flotante ;
+    esMayor : boolean ;
+    mensaje : string ;
+inicio
+{
+    x = 5 ;
+    y = 3.14 ;
+    esMayor = x > 3 ;
+    mensaje = "Hola mundo" ;
+    escribe ( mensaje ) ;
+}
+fin

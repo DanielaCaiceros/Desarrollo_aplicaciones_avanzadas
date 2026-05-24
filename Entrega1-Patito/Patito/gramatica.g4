@@ -21,7 +21,9 @@ estatutos: estatuto estatutos
 idop: ID COMMA idop
      | ID ;
 tipo: ENTERO 
-    | FLOTANTE ;
+    | FLOTANTE
+    | BOOLEAN
+    | STRING ;
 estatuto: asigna
             | condicion
             | ciclo
@@ -65,6 +67,7 @@ teropc: MULT factor teropc
        ;
 factor: ID
       | cte
+      | LETRERO 
       | LPAR expresion RPAR
       | MAS factor
       | MENOS factor
@@ -113,6 +116,8 @@ INICIO   : 'inicio' ;
 FIN : 'fin';
 VARS: 'vars';
 ENTERO: 'entero';
+BOOLEAN: 'boolean';
+STRING: 'string';
 FLOTANTE: 'flotante';
 ESCRIBE: 'escribe';
 MIENTRAS: 'mientras';

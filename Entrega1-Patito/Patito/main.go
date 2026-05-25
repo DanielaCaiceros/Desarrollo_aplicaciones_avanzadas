@@ -28,6 +28,10 @@ func main() {
     // Parsear desde la regla inicial
     tree := p.Programa()
 
-    // Imprimir el árbol
-    fmt.Println(tree.ToStringTree(nil, p))
+    // Crear y ejecutar el listener
+    listener := NuevoPatitoListener()
+    antlr.ParseTreeWalkerDefault.Walk(listener, tree)
+
+    // Imprimir cuádruplos
+    listener.cuadruplos.ImprimirCuadruplos()
 }

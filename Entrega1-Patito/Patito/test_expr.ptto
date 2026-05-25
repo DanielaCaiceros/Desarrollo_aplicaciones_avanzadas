@@ -1,0 +1,10 @@
+programa testExpr ;
+vars :
+    x , y , z : entero ;
+inicio
+{
+    x = 2 + 3 * 4 ;
+    y = x > 10 ;
+    z = ( 2 + 3 ) * 4 ;
+}
+fin

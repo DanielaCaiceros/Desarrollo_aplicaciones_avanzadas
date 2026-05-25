@@ -52,8 +52,17 @@ func (c *Cuadruplos) AgregarCuadruplo(opizq, opder, operador, res string) {
 	c.cuadruplos = append(c.cuadruplos, cuadruplo)
 }
 
+func (c *Cuadruplos) Len() int {
+	return len(c.cuadruplos)
+}
+
+func (c *Cuadruplos) Backpatch(idx int, destino string) {
+	c.cuadruplos[idx].res = destino
+}
+
 func (c *Cuadruplos) ImprimirCuadruplos() {
+	fmt.Println("=== Fila de Cuádruplos ===")
 	for i, cuadruplo := range c.cuadruplos {
-		fmt.Printf("%d: (%s, %s, %s, %s)\n", i, cuadruplo.opizq, cuadruplo.opder, cuadruplo.operador, cuadruplo.res)
+		fmt.Printf("%d: (%s, %s, %s, %s)\n", i, cuadruplo.operador, cuadruplo.opizq, cuadruplo.opder, cuadruplo.res)
 	}
 }

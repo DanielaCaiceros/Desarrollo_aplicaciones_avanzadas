@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mdls -name kMDItemNumberOfPages \"/Users/danielacaiceros/Downloads/class pres \\(1\\).pdf\")",
+      "Bash(go build *)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(rm -f build_err.txt)",
+      "Bash(/tmp/patito_bin /tmp/full.ptto)"
+    ]
+  }
+}

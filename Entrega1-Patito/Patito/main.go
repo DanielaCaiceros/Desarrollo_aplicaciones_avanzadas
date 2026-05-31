@@ -32,6 +32,9 @@ func main() {
     listener := NuevoPatitoListener()
     antlr.ParseTreeWalkerDefault.Walk(listener, tree)
 
-    // Imprimir cuádruplos
+    // Imprimir resultados de la compilación
+    listener.adminMem.ImprimirDistribucion()
+    ImprimirDirectorioFunciones(listener.dirFunciones)
+    listener.adminMem.ImprimirConstantes()
     listener.cuadruplos.ImprimirCuadruplos()
 }

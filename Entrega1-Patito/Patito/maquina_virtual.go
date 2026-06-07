@@ -181,6 +181,22 @@ func (vm *MaquinaVirtual) Ejecutar() {
 			vm.ip = atoiCuad(c.res)
 			continue
 
+		case "RETURN":
+			// Copia el valor de retorno a la dirección global de la función
+			// (leído ANTES de desapilar el registro de activación) y regresa.
+			valor := vm.leer(c.opizq)
+			destino, _ := strconv.Atoi(c.res)
+			if tipoDeDireccion(destino) == "flotante" {
+				if n, ok := valor.(int); ok {
+					valor = float64(n)
+				}
+			}
+			vm.global.Guardar(destino, valor)
+			ra := vm.pila[len(vm.pila)-1]
+			vm.pila = vm.pila[:len(vm.pila)-1]
+			vm.ip = ra.regreso
+			continue
+
 		case "ENDPROC":
 			ra := vm.pila[len(vm.pila)-1]
 			vm.pila = vm.pila[:len(vm.pila)-1]

@@ -1,0 +1,28 @@
+programa vmRetorno ;
+vars :
+    a , b : entero ;
+entero doble ( n : entero ) {
+vars :
+{
+    regresa n + n ;
+}
+}
+entero mayor ( x : entero , y : entero ) {
+vars :
+{
+    si ( x > y ) {
+        regresa x ;
+    } sino {
+        regresa y ;
+    } ;
+}
+}
+inicio
+{
+    a = doble ( 8 ) ;
+    b = mayor ( 3 , 10 ) ;
+    escribe ( "doble(8) =" , a ) ;
+    escribe ( "mayor(3,10) =" , b ) ;
+    escribe ( "doble(a) =" , doble ( a ) ) ;
+}
+fin

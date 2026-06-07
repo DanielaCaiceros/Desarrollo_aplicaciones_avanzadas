@@ -1,7 +1,6 @@
 // Code generated from gramatica.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // gramatica
-
 import "github.com/antlr4-go/antlr/v4"
 
 // BasegramaticaListener is a complete listener for a parse tree produced by gramaticaParser.
@@ -74,6 +73,12 @@ func (s *BasegramaticaListener) EnterEstatuto(ctx *EstatutoContext) {}
 
 // ExitEstatuto is called when production estatuto is exited.
 func (s *BasegramaticaListener) ExitEstatuto(ctx *EstatutoContext) {}
+
+// EnterRetorno is called when production retorno is entered.
+func (s *BasegramaticaListener) EnterRetorno(ctx *RetornoContext) {}
+
+// ExitRetorno is called when production retorno is exited.
+func (s *BasegramaticaListener) ExitRetorno(ctx *RetornoContext) {}
 
 // EnterImprime is called when production imprime is entered.
 func (s *BasegramaticaListener) EnterImprime(ctx *ImprimeContext) {}

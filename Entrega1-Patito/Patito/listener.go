@@ -339,6 +339,32 @@ func (l *PatitoListener) ExitAsigna(ctx *parser.AsignaContext) {
 	l.cuadruplos.AgregarCuadruplo(valor, "_", "=", dirStr(v.direccion))
 }
 
+// --- Retorno (regresa) ---
+
+func (l *PatitoListener) ExitRetorno(ctx *parser.RetornoContext) {
+	if l.funcionActual == nil {
+		fmt.Println("Error: 'regresa' fuera de una función")
+		os.Exit(1)
+	}
+	if l.funcionActual.tipoRetorno == "nula" {
+		fmt.Printf("Error: la función nula '%s' no puede regresar un valor\n", l.funcionActual.nombre)
+		os.Exit(1)
+	}
+
+	val := Pop(&l.pilaOperandos).(string)
+	tipo := Pop(&l.pilaTipos).(string)
+
+	if !compatibles(l.funcionActual.tipoRetorno, tipo) {
+		fmt.Printf("Error: 'regresa' de tipo %s en función '%s' de tipo %s\n",
+			tipo, l.funcionActual.nombre, l.funcionActual.tipoRetorno)
+		os.Exit(1)
+	}
+
+	// RETURN copia el valor a la dirección global de retorno de la función
+	// y cede el control al llamador (la VM hace pop del registro de activación).
+	l.cuadruplos.AgregarCuadruplo(val, "_", "RETURN", dirStr(l.funcionActual.dirRetorno))
+}
+
 // --- Expresión: punto neurálgico para condicion, ciclo, imprime y argumentos ---
 
 func (l *PatitoListener) ExitExpresion(ctx *parser.ExpresionContext) {

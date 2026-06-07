@@ -1,7 +1,6 @@
 // Code generated from gramatica.g4 by ANTLR 4.13.2. DO NOT EDIT.
 
 package parser // gramatica
-
 import "github.com/antlr4-go/antlr/v4"
 
 // gramaticaListener is a complete listener for a parse tree produced by gramaticaParser.
@@ -34,6 +33,9 @@ type gramaticaListener interface {
 
 	// EnterEstatuto is called when entering the estatuto production.
 	EnterEstatuto(c *EstatutoContext)
+
+	// EnterRetorno is called when entering the retorno production.
+	EnterRetorno(c *RetornoContext)
 
 	// EnterImprime is called when entering the imprime production.
 	EnterImprime(c *ImprimeContext)
@@ -127,6 +129,9 @@ type gramaticaListener interface {
 
 	// ExitEstatuto is called when exiting the estatuto production.
 	ExitEstatuto(c *EstatutoContext)
+
+	// ExitRetorno is called when exiting the retorno production.
+	ExitRetorno(c *RetornoContext)
 
 	// ExitImprime is called when exiting the imprime production.
 	ExitImprime(c *ImprimeContext)

@@ -29,8 +29,10 @@ estatuto: asigna
             | ciclo
             | llamada SEMICOLON
             | imprime
+            | retorno
             | LCORCHETE estatutos RCORCHETE
             ;
+retorno: REGRESA expresion SEMICOLON ;
 imprime: ESCRIBE LPAR explet RPAR SEMICOLON ;
 explet: expresiones
       | letreros
@@ -125,6 +127,7 @@ HAZ: 'haz';
 SI: 'si';
 SINO: 'sino';
 NULA: 'nula';
+REGRESA: 'regresa';
 LETRERO : '"' ~["]* '"' ;  
 ID : [a-zA-Z_][a-zA-Z0-9_]* ;
 WS : [ \t\r\n]+ -> skip ;

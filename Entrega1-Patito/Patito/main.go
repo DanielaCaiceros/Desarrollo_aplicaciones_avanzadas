@@ -37,4 +37,8 @@ func main() {
     ImprimirDirectorioFunciones(listener.dirFunciones)
     listener.adminMem.ImprimirConstantes()
     listener.cuadruplos.ImprimirCuadruplos()
+
+    // Ejecutar el código intermedio en la Máquina Virtual
+    vm := NuevaMaquinaVirtual(listener.cuadruplos.cuadruplos, listener.adminMem.Constantes())
+    vm.Ejecutar()
 }

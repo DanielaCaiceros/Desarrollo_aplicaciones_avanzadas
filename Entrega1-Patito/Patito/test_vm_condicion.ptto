@@ -1,0 +1,18 @@
+programa vmCondicion ;
+vars :
+    x : entero ;
+inicio
+{
+    x = 7 ;
+    si ( x > 5 ) {
+        escribe ( "x es mayor que 5" ) ;
+    } sino {
+        escribe ( "x es menor o igual a 5" ) ;
+    } ;
+    si ( x == 10 ) {
+        escribe ( "x vale diez" ) ;
+    } sino {
+        escribe ( "x no vale diez" ) ;
+    } ;
+}
+fin

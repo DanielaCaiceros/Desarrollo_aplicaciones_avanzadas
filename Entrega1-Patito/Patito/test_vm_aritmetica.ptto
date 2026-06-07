@@ -1,0 +1,16 @@
+programa vmAritmetica ;
+vars :
+    x , y , z : entero ;
+    r : flotante ;
+inicio
+{
+    x = 2 + 3 * 4 ;
+    z = ( 2 + 3 ) * 4 ;
+    y = x - z ;
+    r = x / 2 + 1.5 ;
+    escribe ( "x =" , x ) ;
+    escribe ( "z =" , z ) ;
+    escribe ( "y =" , y ) ;
+    escribe ( "r =" , r ) ;
+}
+fin

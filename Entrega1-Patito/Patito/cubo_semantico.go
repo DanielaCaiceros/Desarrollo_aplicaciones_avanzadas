@@ -37,6 +37,11 @@ func (cs *CuboSemantico) inicializar() {
 			}
 		}
 	}
+
+	// Strings: concatenación con '+', igualdad/desigualdad con '==' y '!='.
+	cs.set("string", "string", "+", "string")
+	cs.set("string", "string", "==", "entero")
+	cs.set("string", "string", "!=", "entero")
 }
 
 func (cs *CuboSemantico) Consultar(tipoIzq, tipoDer, operador string) (string, error) {

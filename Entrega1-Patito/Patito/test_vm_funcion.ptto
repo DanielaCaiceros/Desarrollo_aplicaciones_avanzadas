@@ -1,0 +1,20 @@
+programa vmFuncion ;
+vars :
+    g : entero ;
+nula cuadrado ( n : entero ) {
+vars :
+    c : entero ;
+{
+    c = n * n ;
+    escribe ( "El cuadrado es:" , c ) ;
+}
+}
+inicio
+{
+    g = 9 ;
+    escribe ( "Global g =" , g ) ;
+    cuadrado ( 4 ) ;
+    cuadrado ( 6 ) ;
+    escribe ( "Global g sigue siendo:" , g ) ;
+}
+fin

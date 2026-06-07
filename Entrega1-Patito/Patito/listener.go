@@ -381,7 +381,9 @@ func (l *PatitoListener) ExitExpresion(ctx *parser.ExpresionContext) {
 				llam.numParam+1, llam.info.nombre, param.tipo, tipoArg)
 			os.Exit(1)
 		}
-		l.cuadruplos.AgregarCuadruplo(val, "_", "PARAM", fmt.Sprintf("param%d", llam.numParam+1))
+		// El destino del PARAM es la dirección virtual local del parámetro,
+		// de modo que la Máquina Virtual lo copie directo al registro de activación.
+		l.cuadruplos.AgregarCuadruplo(val, "_", "PARAM", dirStr(param.direccion))
 		llam.numParam++
 	}
 }

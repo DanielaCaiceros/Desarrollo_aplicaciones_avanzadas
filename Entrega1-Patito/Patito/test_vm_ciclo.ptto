@@ -1,0 +1,15 @@
+programa vmCiclo ;
+vars :
+    i , suma : entero ;
+inicio
+{
+    i = 1 ;
+    suma = 0 ;
+    mientras ( i < 6 ) haz
+    {
+        suma = suma + i ;
+        i = i + 1 ;
+    } ;
+    escribe ( "Suma 1..5 =" , suma ) ;
+}
+fin

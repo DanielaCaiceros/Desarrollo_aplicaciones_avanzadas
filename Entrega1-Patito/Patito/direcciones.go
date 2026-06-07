@@ -121,6 +121,67 @@ func (a *AdministradorMemoria) Asignar(ambito, tipo string) int {
 	return base + off
 }
 
+// Constantes devuelve el mapa literal->dirección (lo usa la Máquina Virtual
+// para precargar la memoria de constantes).
+func (a *AdministradorMemoria) Constantes() map[string]int {
+	return a.constantes
+}
+
+// segmentoDe identifica el ámbito de una dirección virtual por el rango en que cae.
+// Esta es la clave de las direcciones virtuales: el número mismo indica dónde
+// vive el dato en la memoria de ejecución, sin consultar tabla alguna.
+func segmentoDe(dir int) string {
+	switch {
+	case dir >= BaseGlobalEnt && dir < BaseLocalEnt:
+		return "global"
+	case dir >= BaseLocalEnt && dir < BaseTempEnt:
+		return "local"
+	case dir >= BaseTempEnt && dir < BaseCteEnt:
+		return "temporal"
+	case dir >= BaseCteEnt && dir < BaseCteStr+TamanoSegmento:
+		return "constante"
+	}
+	return "desconocido"
+}
+
+// tipoDeDireccion deduce el tipo de dato de una dirección por su desplazamiento
+// dentro del ámbito (cada tipo ocupa un bloque de TamanoSegmento direcciones).
+// Nota: el ámbito "constante" omite booleano, por eso se trata aparte.
+func tipoDeDireccion(dir int) string {
+	if segmentoDe(dir) == "constante" {
+		switch {
+		case dir < BaseCteFlo:
+			return "entero"
+		case dir < BaseCteStr:
+			return "flotante"
+		default:
+			return "string"
+		}
+	}
+	var base int
+	switch segmentoDe(dir) {
+	case "global":
+		base = BaseGlobalEnt
+	case "local":
+		base = BaseLocalEnt
+	case "temporal":
+		base = BaseTempEnt
+	default:
+		return "desconocido"
+	}
+	switch (dir - base) / TamanoSegmento {
+	case 0:
+		return "entero"
+	case 1:
+		return "flotante"
+	case 2:
+		return "boolean"
+	case 3:
+		return "string"
+	}
+	return "desconocido"
+}
+
 // Constante asigna (o reutiliza) la dirección de un literal.
 func (a *AdministradorMemoria) Constante(valor, tipo string) int {
 	if dir, ok := a.constantes[valor]; ok {

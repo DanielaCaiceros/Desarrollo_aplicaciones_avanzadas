@@ -25,25 +25,31 @@ import (
 
 // --- Memoria: bloque de celdas indexado por dirección virtual ---
 
+const tamMemoria = 16000
+
 type Memoria struct {
-	celdas map[int]interface{}
+	celdas       []interface{}
+	inicializado []bool
 }
 
 func NuevaMemoria() *Memoria {
-	return &Memoria{celdas: make(map[int]interface{})}
+	return &Memoria{
+		celdas:       make([]interface{}, tamMemoria),
+		inicializado: make([]bool, tamMemoria),
+	}
 }
 
 func (m *Memoria) Guardar(dir int, valor interface{}) {
 	m.celdas[dir] = valor
+	m.inicializado[dir] = true
 }
 
 func (m *Memoria) Leer(dir int) interface{} {
-	v, ok := m.celdas[dir]
-	if !ok {
+	if !m.inicializado[dir] {
 		fmt.Printf("Error de ejecución: se leyó la dirección %d antes de asignarla\n", dir)
 		os.Exit(1)
 	}
-	return v
+	return m.celdas[dir]
 }
 
 // --- Registro de Activación: memoria local+temporal de una llamada ---

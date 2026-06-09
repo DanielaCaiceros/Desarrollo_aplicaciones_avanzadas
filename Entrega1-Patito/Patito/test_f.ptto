@@ -1,0 +1,23 @@
+programa fibonacciRecursivo ;
+vars :
+    n : entero ;
+entero fib ( n : entero ) {
+vars :
+{
+    si ( n < 2 )
+    {
+        regresa n ;
+    }
+    sino
+    {
+        regresa fib ( n - 1 ) + fib ( n - 2 ) ;
+    } ;
+}
+}
+inicio
+{
+    n = 20 ;
+    escribe ( "fibonacci de" , n ) ;
+    escribe ( "es" , fib ( n ) ) ;
+}
+fin

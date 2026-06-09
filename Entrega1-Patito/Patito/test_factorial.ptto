@@ -1,0 +1,23 @@
+programa factorialRecursivo ;
+vars :
+    n : entero ;
+entero factorial ( x : entero ) {
+vars :
+{
+    si ( x > 1 )
+    {
+        regresa x * factorial ( x - 1 ) ;
+    }
+    sino
+    {
+        regresa 1 ;
+    } ;
+}
+}
+inicio
+{
+    n = 5 ;
+    escribe ( "factorial de" , n ) ;
+    escribe ( "es" , factorial ( n ) ) ;
+}
+fin
